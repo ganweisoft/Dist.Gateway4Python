@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: gw-mini-datacenter
+Version: 0.0.4
+Summary: GWMiniDataCenter的python实现。用于边缘网关的下级，使用mqtt上传实时消息
+Author-email: LiHao <lihao@ganweisoft.com>
+License-Expression: MIT
+Project-URL: Homepage, https://gitee.com/ganweicloud/gw-mini-datacenter-python
+Project-URL: Issues, https://gitee.com/ganweicloud/gw-mini-datacenter-python
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
