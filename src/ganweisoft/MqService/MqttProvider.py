@@ -91,9 +91,11 @@ class MqttProvider:
             asp_option_builder["port"] = mq_ssl_port
             asp_option_builder["tls"] = tls_options
         else:
-            mq_port = int(os.environ.get("IoTCenterMqttServerPort"))
-            if not mq_port:
-                mq_port = self._config.get("MqPort")
+            mq_port_str = os.environ.get("IoTCenterMqttServerPort")
+            if not mq_port_str:
+                mq_port = int(self._config.get("MqPort"))
+            else:
+                mq_port = int(mq_port_str)
 
             asp_option_builder["server"] = mq_server
             asp_option_builder["port"] = mq_port
