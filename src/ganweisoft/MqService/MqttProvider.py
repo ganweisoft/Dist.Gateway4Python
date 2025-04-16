@@ -24,6 +24,7 @@ class MqttProvider:
     EquipTableRows: Dict[int, Equip] = {}
     _mqtt_client = None
     _asp_option = None
+    _config = {}
 
     def __new__(cls):
         if cls._instance is None:
@@ -35,10 +36,28 @@ class MqttProvider:
         pass
 
     def init(self):
+        with open('config/config.properties', 'r') as file:
+            for line in file:
+                line = line.strip()
+                if line and not line.startswith('#'):  # 跳过空行和注释行
+                    key, value = line.split(':', 1)  # 从第一个冒号处分割
+                    self._config[key.strip()] = value.strip()
+
         username = os.environ.get("IoTCenterMqttName")
+        if not username:
+            username = self._config.get("MqUsername")
+
         password = os.environ.get("IoTCenterMqttKey")
+        if not password:
+            password = self._config.get("MqPassword")
+
         gateway_id = os.environ.get("IoTCenterGatewayInstanceId")
+        if not gateway_id:
+            gateway_id = self._config.get("InstanceId")
+
         mq_server = os.environ.get("IoTCenterMqttServerIp")
+        if not mq_server:
+            mq_server = self._config.get("MqServer")
 
         asp_option_builder = {
             "credentials": {"username": username, "password": password},
@@ -72,7 +91,10 @@ class MqttProvider:
             asp_option_builder["port"] = mq_ssl_port
             asp_option_builder["tls"] = tls_options
         else:
-            mq_port = int(os.environ.get("IoTCenterMqttServerPort", 1883))
+            mq_port = int(os.environ.get("IoTCenterMqttServerPort"))
+            if not mq_port:
+                mq_port = self._config.get("MqPort")
+
             asp_option_builder["server"] = mq_server
             asp_option_builder["port"] = mq_port
 
@@ -110,6 +132,8 @@ class MqttProvider:
         topic = message.topic
         encoding = chardet.detect(message.payload)['encoding']
         payload = message.payload.decode(encoding)
+        Logging.write_log_file(f"topic: {topic}")
+        Logging.write_log_file(f"payload: {payload}")
 
         # Handle different topics
         if mqtt.topic_matches_sub(MqttTopic.TopicIotsysEquipDown, topic):
