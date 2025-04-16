@@ -1,6 +1,6 @@
 [project]
 name = "gw.mini.datacenter"
-version = "1.0.0"
+version = "1.0.1"
 authors = [
   { name="LiHao", email="lihao@ganweisoft.com" },
 ]
@@ -11,9 +11,19 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
-license = "MIT"
-license-files = ["LICEN[CS]E*"]
+license = {file = "LICENSE"}
+#license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "chardet>=5.2.0",
+    "cryptography>=44.0.1",
+    "paho_mqtt>=2.1.0",
+    "pyserial>=3.5"
+]
 
 [project.urls]
 Homepage = "https://gitee.com/ganweicloud/gw-mini-datacenter-python"
 Issues = "https://gitee.com/ganweicloud/gw-mini-datacenter-python"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
