@@ -1,6 +1,10 @@
-FROM python:3.11
-LABEL authors="lihao@ganweisoft.com"
+# using debian bookworm image
+FROM debian:bookworm-slim
 
-WORKDIR /opt/ganwei
+# Continue with application deployment
+RUN mkdir /opt/ganwei
+COPY IoTCenter.Python /opt/ganwei/IoTCenter.Python
 
-ENTRYPOINT ["DataCenter"]
+WORKDIR /opt/ganwei/IoTCenter.Python/
+
+CMD ["./CEquip"]

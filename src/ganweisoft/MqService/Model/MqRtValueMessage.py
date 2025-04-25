@@ -7,8 +7,8 @@ class DataItem:
         self.Attribute: Dict[int, Any] = {}
 
     def __init__(self, device_id: int, attribute: Dict[int, Any]):
-        self.device_id = device_id
-        self.attribute = attribute
+        self.DeviceId = device_id
+        self.Attribute = attribute
 
 class MqRtValueMessage:
     def __init__(self):
@@ -17,6 +17,6 @@ class MqRtValueMessage:
         self.DataItems: List[DataItem] = []
 
     def __init__(self, time: str, flow: str, data_items: List[DataItem]):
-        self.time = time
-        self.flow = flow
-        self.data_items = data_items
+        self.Time = time
+        self.Flow = flow
+        self.DataItems = data_items

@@ -13,11 +13,11 @@ class EquipEventItem:
         self.EquipNo = 0
 
     def __init__(self, msg: str, msg4_linkage: str, level: MessageLevel, occur_date_time: datetime, equip_no: int):
-        self.msg = msg
-        self.msg4_linkage = msg4_linkage
-        self.level = level
-        self.occur_date_time = occur_date_time
-        self.equip_no = equip_no
+        self.Msg = msg
+        self.Msg4Linkage = msg4_linkage
+        self.Level = level
+        self.OccurDateTime = occur_date_time
+        self.EquipNo = equip_no
 
 
 class EquipEvent:
@@ -26,8 +26,8 @@ class EquipEvent:
         self.EquipEvents: List[EquipEventItem] = []
 
     def __init__(self, device_id: int, equip_events: List[EquipEventItem]):
-        self.device_id = device_id
-        self.equip_events = equip_events
+        self.DeviceId = device_id
+        self.EquipEvents = equip_events
 
 
 class MqEvtMessage:
@@ -37,6 +37,6 @@ class MqEvtMessage:
         self.EventItems: List[EquipEvent] = []
 
     def __init__(self, time: str, flow: str, event_items: List[EquipEvent]):
-        self.time = time
-        self.flow = flow
-        self.event_items = event_items
+        self.Time = time
+        self.Flow = flow
+        self.EventItems = event_items
