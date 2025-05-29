@@ -17,4 +17,3 @@ class SetParmTableRow:
         self.Reserve1 = None
         self.Reserve2 = None
         self.Reserve3 = None
-        self.set_code = None

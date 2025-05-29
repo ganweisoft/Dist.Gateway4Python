@@ -114,10 +114,6 @@ class GWDbProvider:
                 row.ZiChanID = ycp.ZiChanId
                 row.PlanNo = ycp.PlanNo
                 row.SafeTime = ycp.SafeTime
-                row.GWValue = ycp.GWValue
-                row.GWTime = ycp.GWTime
-                row.datatype = ycp.DataType
-                row.yc_code = ycp.YcCode
                 temp.append(row)
         return temp
 
@@ -157,12 +153,9 @@ class GWDbProvider:
                 row.ZiChanID = yxp.ZiChanId
                 row.PlanNo = yxp.PlanNo
                 row.SafeTime = yxp.SafeTime
-                row.GWValue = yxp.GWValue
-                row.GWTime = yxp.GWTime
                 row.datatype = yxp.DataType
                 row.inversion = yxp.Inversion
                 row.initval = yxp.Initval
-                row.yx_code = yxp.YxCode
                 temp.append(row)
         return temp
 
@@ -183,7 +176,6 @@ class GWDbProvider:
                 row.VoiceKeys = set_parm.VoiceKeys
                 row.EnableVoice = set_parm.EnableVoice
                 row.qr_equip_no = set_parm.QrEquipNo
-                row.set_code = set_parm.SetCode
                 row.sta_n = set_parm.StaN
                 row.equip_no = set_parm.EquipNo
                 row.main_instruction = set_parm.MainInstruction

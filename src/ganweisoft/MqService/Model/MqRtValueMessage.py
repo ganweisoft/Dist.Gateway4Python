@@ -10,13 +10,16 @@ class DataItem:
         self.DeviceId = device_id
         self.Attribute = attribute
 
+
 class MqRtValueMessage:
     def __init__(self):
+        self.DataType = 0
         self.Time = None
         self.Flow = None
         self.DataItems: List[DataItem] = []
 
-    def __init__(self, time: str, flow: str, data_items: List[DataItem]):
+    def __init__(self, data_type: int, time: str, flow: str, data_items: List[DataItem]):
+        self.DataType = data_type
         self.Time = time
         self.Flow = flow
         self.DataItems = data_items

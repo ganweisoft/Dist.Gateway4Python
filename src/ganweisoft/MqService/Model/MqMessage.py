@@ -46,7 +46,10 @@ class Equip:
     def __init__(self, d=None):
         if d is not None:
             for key, value in d.items():
-                setattr(self, key, value)
+                if key[0].islower():
+                    setattr(self, (key[0].upper() + key[1:]), value)
+                else:
+                    setattr(self, key, value)
 
 
 class Ycp:
@@ -99,7 +102,10 @@ class Ycp:
     def __init__(self, d=None):
         if d is not None:
             for key, value in d.items():
-                setattr(self, key, value)
+                if key[0].islower():
+                    setattr(self, (key[0].upper() + key[1:]), value)
+                else:
+                    setattr(self, key, value)
 
 
 class Yxp:
@@ -146,7 +152,10 @@ class Yxp:
     def __init__(self, d=None):
         if d is not None:
             for key, value in d.items():
-                setattr(self, key, value)
+                if key[0].islower():
+                    setattr(self, (key[0].upper() + key[1:]), value)
+                else:
+                    setattr(self, key, value)
 
 
 class SetParm:
@@ -173,4 +182,7 @@ class SetParm:
     def __init__(self, d=None):
         if d is not None:
             for key, value in d.items():
-                setattr(self, key, value)
+                if key[0].islower():
+                    setattr(self, (key[0].upper() + key[1:]), value)
+                else:
+                    setattr(self, key, value)

@@ -152,7 +152,8 @@ class SubEquipList:
                 equip.i_comm_fault_retry_count = 0
 
                 if equip.icommunication.YCResults:
-                    MqttProvider.MqttProvider().publish_yc_rt_value_async(MqRtValueMessage(
+                    MqttProvider().publish_yc_rt_value_async(MqRtValueMessage(
+                        data_type=2,
                         time=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         flow=os.urandom(16).hex(),
                         data_items=[DataItem(device_id=equip.icommunication.m_equip_no,
@@ -160,7 +161,8 @@ class SubEquipList:
                     ))
 
                 if equip.icommunication.YXResults:
-                    MqttProvider.MqttProvider().publish_yx_rt_value_async(MqRtValueMessage(
+                    MqttProvider().publish_yx_rt_value_async(MqRtValueMessage(
+                        data_type=2,
                         time=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         flow=os.urandom(16).hex(),
                         data_items=[DataItem(device_id=equip.icommunication.m_equip_no,
@@ -168,7 +170,7 @@ class SubEquipList:
                     ))
 
                 if equip.icommunication.EquipEventList:
-                    MqttProvider.MqttProvider().publish_evt_value_async(MqEvtMessage(
+                    MqttProvider().publish_evt_value_async(MqEvtMessage(
                         time=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         flow=os.urandom(16).hex(),
                         event_items=[EquipEvent(

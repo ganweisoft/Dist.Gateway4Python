@@ -38,7 +38,3 @@ class YcpTableRow:
         self.ZiChanID = None
         self.PlanNo = None
         self.SafeTime = None
-        self.GWValue = None
-        self.GWTime = None
-        self.datatype = None
-        self.yc_code = None
