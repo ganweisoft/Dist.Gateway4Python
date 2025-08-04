@@ -2,6 +2,7 @@ import socket
 import threading
 from typing import List, Optional
 
+
 class GWTCPServer:
     def __init__(self, port):
         self._port = port
