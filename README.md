@@ -18,7 +18,7 @@
 |仓库  | 描述 | 状态 |
 |----|---------------|--------|
 |**[Gateway](https://github.com/ganweisoft/Gateway)**| 主网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status" />
-|**[Mini-Gateway-CSharp](https://github.com/ganweisoft/Mini-Gateway-CSharp)**| C#环境分布式网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status" />
+|**[Mini-Gateway-CSharp](https://github.com/ganweisoft/Mini-Gateway-CSharp)**| .NET环境分布式网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status" />
 |**[Mini-Gateway-Java](https://github.com/ganweisoft/Mini-Gateway-Java)**| Java环境分布式网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" />
 
 
