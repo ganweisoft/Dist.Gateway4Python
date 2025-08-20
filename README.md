@@ -3,7 +3,7 @@
 
 ## 介绍
 
-该项目是分离自[**GateWay**](https://github.com/ganweisoft/Gateway)的一个可扩展的，开发自.NET框架的微型网关，作用是适配主流的开发语言, 使得开发者可以使用自己熟悉的开发语言进行开发
+分离自[**GateWay**](https://github.com/ganweisoft/Gateway)的一个可扩展的Python环境分布式网关, 使得开发者可以使用自己熟悉的开发语言进行快速开发
 
 ### 消息路径
 
