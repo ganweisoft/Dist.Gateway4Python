@@ -20,7 +20,6 @@
 |**[Gateway](https://github.com/ganweisoft/Gateway)**| 主网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status" />
 |**[Mini-Gateway-CSharp](https://github.com/ganweisoft/Mini-Gateway-CSharp)**| C#版本微型网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status" />
 |**[Mini-Gateway-Java](https://github.com/ganweisoft/Mini-Gateway-Java)**| Java版本微型网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" />
-|**[Mini-Gateway-Python](https://github.com/ganweisoft/Mini-Gateway-Python)**| Python版本微型网关 |  <img src="https://img.shields.io/badge/status-active-brightgreen" alt="Status" />
 
 
 ### 内部扩展
