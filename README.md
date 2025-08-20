@@ -11,8 +11,8 @@
 ![img.png](img.png)
 
 1. GateWay主网关作为subscriber. 
-2. 消息队列中间件可选MQTT, kafka, redis等.
-3. Java/Python/.NET版本的Mini-GateWay作为publisher.
+2. 消息队列中间件可选MQTT, Kafka, Redis等.
+3. Mini-GateWay-Python作为publisher.
 
 ### 相关仓库
 |仓库  | 描述 | 状态 |
