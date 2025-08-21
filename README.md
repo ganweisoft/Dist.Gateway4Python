@@ -12,7 +12,7 @@
 
 1. GateWay主网关作为subscriber. 
 2. 消息队列中间件可选MQTT, Kafka, Redis等.
-3. GateWay4Python作为publisher.
+3. Dist.GateWay4Python作为publisher.
 
 ### 内部扩展
 
