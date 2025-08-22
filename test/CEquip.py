@@ -1,5 +1,9 @@
 import random
 import threading
+import os
+import sys
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from ganweisoft.Database.YcpTable import YcpTableRow
 from ganweisoft.Database.YxpTable import YxpTableRow
@@ -30,7 +34,7 @@ class CEquip(CEquipBase):
     def GetYC(self, row: YcpTableRow) -> bool:
         min_val = max(row.val_min, 0.0)
         max_val = min(row.val_max, 100.0)
-        super().SetYCData(row, random.uniform(min_val, max_val))
+        super().SetYCData(row, int(random.uniform(min_val, max_val)))
         return True
 
     def GetYX(self, row: YxpTableRow) -> bool:
@@ -79,6 +83,8 @@ class CEquip(CEquipBase):
             Logging.write_log_file(f"SetParm error: {str(e)}")
             return False
 
+
 if __name__ == '__main__':
     from ganweisoft.DataCenter import DataCenter
+
     DataCenter.start()

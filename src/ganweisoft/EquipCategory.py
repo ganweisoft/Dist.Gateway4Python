@@ -153,7 +153,7 @@ class SubEquipList:
 
                 if equip.icommunication.YCResults:
                     MqttProvider().publish_yc_rt_value_async(MqRtValueMessage(
-                        data_type=2,
+                        data_type=1,
                         time=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                         flow=os.urandom(16).hex(),
                         data_items=[DataItem(device_id=equip.icommunication.m_equip_no,
