@@ -21,6 +21,9 @@ class MqttProvider:
     _instance = None
     EquipTableRows: Dict[int, Equip] = {}
     _dapr_client = None
+    _dapr_grpc_client = None
+    _gateway_id: str = None
+    _mq_server: str = None
     _gateway_id: str = None
     _config = {}
     STATE_TOPIC_NAME = "state"
@@ -62,6 +65,10 @@ class MqttProvider:
         if not mq_server:
             mq_server = self._config.get("MqServer")
 
+        mq_grpc_server = os.environ.get("IoTCenterMqttGrpcServerIp")
+        if not mq_grpc_server:
+            mq_grpc_server = self._config.get("MqGRPCServer")
+
         def trace_injector() -> Dict[str, str]:
             headers: Dict[str, str] = {"dapr-api-token": username + password}
             return headers
@@ -73,6 +80,7 @@ class MqttProvider:
             settings.DAPR_API_TOKEN = username + password
 
         self._dapr_client = DaprClient()
+        self._dapr_grpc_client = DaprClient(mq_grpc_server)
         self.get_equip()
 
         # self._dapr_client.subscribe_with_handler(
@@ -125,8 +133,8 @@ class MqttProvider:
 
     def publish_yc_rt_value_async(self, msg: MqRtValueMessage):
         payload = json.dumps(msg, default=lambda o: o.__dict__)
-        self._dapr_client.set_metadata("dapr-api-token", "jvQYmCmRfwCRpO0r8/8KFQ==")
-        self._dapr_client.publish_event(
+        #self._dapr_client.set_metadata("dapr-api-token", "jvQYmCmRfwCRpO0r8/8KFQ==")
+        self._dapr_grpc_client.publish_event(
             pubsub_name=self.PUBSUB_NAME,
             topic_name=self.TOPIC_NAME,
             data=payload,
@@ -136,7 +144,7 @@ class MqttProvider:
 
     def publish_yx_rt_value_async(self, msg: MqRtValueMessage):
         payload = json.dumps(msg, default=lambda o: o.__dict__)
-        self._dapr_client.publish_event(
+        self._dapr_grpc_client.publish_event(
             pubsub_name=self.PUBSUB_NAME,
             topic_name=self.TOPIC_NAME,
             data=payload,
@@ -146,7 +154,7 @@ class MqttProvider:
 
     def publish_rt_state_async(self, msg):
         payload = json.dumps(msg, default=lambda o: o.__dict__)
-        self._dapr_client.publish_event(
+        self._dapr_grpc_client.publish_event(
             pubsub_name=self.PUBSUB_NAME,
             topic_name=self.STATE_TOPIC_NAME,
             data=payload,
@@ -156,7 +164,7 @@ class MqttProvider:
 
     def publish_evt_value_async(self, msg):
         payload = json.dumps(msg, default=lambda o: o.__dict__)
-        self._dapr_client.publish_event(
+        self._dapr_grpc_client.publish_event(
             pubsub_name=self.PUBSUB_NAME,
             topic_name=self.EVT_TOPIC_NAME,
             data=payload,
